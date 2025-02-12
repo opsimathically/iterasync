@@ -5,6 +5,11 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "homepage": "https://github.com/opsimathically/iterasync",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opsimathically/iterasync.git"
+  },
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "test": "ts-node -r tsconfig-paths/register test/IterAsync.test.ts"
