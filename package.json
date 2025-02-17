@@ -1,6 +1,6 @@
 {
   "name": "@opsimathically/iterasync",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Asynchronously process data via generators and events.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

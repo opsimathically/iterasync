@@ -68,7 +68,7 @@ export default class IterAsync<IterType, ExtraType> extends EventEmitter {
     for (let i = 0; i < this.concurrency; i++) {
       const generated_val = await val_generator.next();
       if (generated_val.done) {
-        if (this.total_procs_run_cnt === 0) {
+        if (this.total_procs_run_cnt === 0 && this.procs_running_cnt === 0) {
           finished_resolver(true);
         }
         break;
