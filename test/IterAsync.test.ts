@@ -103,4 +103,25 @@ process.on('beforeExit', () => {
     if (ia.total_procs_run_cnt !== 1000)
       assert.fail('Run count was not as expected (expected 10).');
   });
+
+  await test('Testing bad generator/empty set.', async function () {
+    type test_obj_t = { hello: string };
+    const test_arr: test_obj_t[] = [];
+    const ia = new IterAsync<test_obj_t, extra_t>({
+      concurrency: 100,
+      extra: {
+        hello: 1
+      },
+      gen: async function* () {
+        if (test_arr.length <= 0) return;
+        for (let i = 0; i < test_arr.length; i++) {
+          yield test_arr[i];
+        }
+      },
+      processor: async function (this: IterAsync<test_obj_t, extra_t>) {}
+    });
+    await ia.run();
+    if (ia.total_procs_run_cnt !== 0)
+      assert.fail('Run count was not as expected (expected 10).');
+  });
 })();
