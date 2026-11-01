@@ -1,0 +1,38 @@
+{
+  "name": "@opsimathically/iterasync",
+  "version": "1.0.3",
+  "description": "Asynchronously process data via generators and events. (ESM)",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "homepage": "https://github.com/opsimathically/iterasync",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opsimathically/iterasync.git"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "test": "node -r tsconfig-paths/register -e \"require('ts-node').register({moduleTypes:{'src/**/*.ts':'cjs','test/**/*.ts':'cjs'}});require('./test/IterAsync.test.ts')\""
+  },
+  "author": "Jason Medeiros",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "@types/wtfnode": "^0.7.3",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.20.1",
+    "globals": "^15.14.0",
+    "prettier": "^3.5.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0",
+    "wtfnode": "^0.10.0"
+  }
+}
